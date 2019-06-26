@@ -8,9 +8,12 @@ verify_ssl = true
 [packages]
 django = "*"
 djangorestframework = "*"
-django-rest-elasticsearch = "*"
 requests = "*"
 elasticsearch = "*"
+django-rest-elasticsearch = "*"
+elasticsearch-dsl = "==6.1.0"
+django-elasticsearch-dsl = "*"
+django-elasticsearch-dsl-drf = "*"
 
 [requires]
 python_version = "3.7"

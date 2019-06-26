@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1e571edecb1412f75acd47500b4bf2c8331f6f39e008696b1d8d4712364dcc8b"
+            "sha256": "ba926aa8f82affac2eb4d56013f0077c703f849583d83b91daa912f5afe1b853"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,29 @@
             "index": "pypi",
             "version": "==2.2.2"
         },
+        "django-elasticsearch-dsl": {
+            "hashes": [
+                "sha256:114889f0f70d584e300953b9fc75f312b447e3ff96136dad03028654ba9f4cbd",
+                "sha256:8c96714d8eef30763e820a2909663b236df765e5c6c8508721489dc9713dfef7"
+            ],
+            "index": "pypi",
+            "version": "==0.5.1"
+        },
+        "django-elasticsearch-dsl-drf": {
+            "hashes": [
+                "sha256:235af4438cc31854cc65d1e93fcd14c71f50e1a09fa4a0b6fb9b119b0d8bb7b9",
+                "sha256:d0999afce27a3c836645e35df0107e6edbe0aa60ad5af9f8210c23a9a605d095"
+            ],
+            "index": "pypi",
+            "version": "==0.17.7"
+        },
+        "django-nine": {
+            "hashes": [
+                "sha256:6364ae029da6b801fe7dcf9cdbdffb714a9bf0b95c8594f827032f19f99db198",
+                "sha256:a58fda1d24781086025018d1c85d7a1a8e2ae99aa6a8a7e0f4fe16a582f13480"
+            ],
+            "version": "==0.2.2"
+        },
         "django-rest-elasticsearch": {
             "hashes": [
                 "sha256:b74e226156f6ec190847df246cbcaeb4a6cb1d5f8dc838556d5354772686b120"
@@ -63,10 +86,11 @@
         },
         "elasticsearch-dsl": {
             "hashes": [
-                "sha256:26416f4dd46ceca43d62ef74970d9de4bdd6f4b0f163316f0b432c9e61a08bec",
-                "sha256:f60aea7fd756ac1fbe7ce114bbf4949aefbf495dfe8896640e787c67344f12f6"
+                "sha256:5114a38a88e93a4663782eae07a1e8084ba333c49887335c83de8b8043bc72b2",
+                "sha256:d6d974cd2289543a3350690494a43fe9996485b8dc6f1d8758cb56bee01244bd"
             ],
-            "version": "==6.4.0"
+            "index": "pypi",
+            "version": "==6.1.0"
         },
         "idna": {
             "hashes": [
@@ -74,6 +98,13 @@
                 "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
             ],
             "version": "==2.8"
+        },
+        "ipaddress": {
+            "hashes": [
+                "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
+                "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
+            ],
+            "version": "==1.0.22"
         },
         "pytest-runner": {
             "hashes": [
