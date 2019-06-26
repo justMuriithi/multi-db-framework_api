@@ -30,3 +30,4 @@ class PO_headersIndex(DocType):
 # # es.indices.create(index='po_headers')
 # es.indices.put_mapping(index='po_headers', doc_type='_doc',
 #                        body='null', include_type_name=True)
+
