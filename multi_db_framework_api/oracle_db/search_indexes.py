@@ -1,8 +1,9 @@
-from .models import PO_headers
+from .models import XXTMP_PO_HEADERS
 from elasticsearch_dsl import DocType, Integer, Index, Date, Text
 from elasticsearch_dsl.connections import connections
 es = connections.create_connection(hosts=['localhost'])
 headers_index = Index('po_headers')
+oracle_log_data_index = Index('oracle_log_data')
 
 
 @headers_index.doc_type
@@ -25,9 +26,13 @@ class PO_headersIndex(DocType):
     ship_to_location_code = Text()
 
     class Meta:
-        model = PO_headers
-# PO_headersIndex.init()
-# # es.indices.create(index='po_headers')
-# es.indices.put_mapping(index='po_headers', doc_type='_doc',
-#                        body='null', include_type_name=True)
+        model = XXTMP_PO_HEADERS
 
+
+@oracle_log_data_index.doc_type
+class oracle_log_dataIndex(DocType):
+    _index = Text()
+    _type = Text()
+    _id = Text()
+    _score = Integer()
+    _source = Integer()
