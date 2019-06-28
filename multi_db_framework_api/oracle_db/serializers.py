@@ -19,7 +19,7 @@ class PO_linesSerializer(serializers.ModelSerializer):
 
 
 class PO_headersSerializer(serializers.ModelSerializer):
-    po_lines = PO_linesSerializer(
+    po_line = PO_linesSerializer(
         many=False, read_only=True, required=False)
 
     class Meta:
