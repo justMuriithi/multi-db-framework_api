@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (PO_headersElasticView,
                     PO_linesView, PO_linesSingleView, PO_headersSingleView,
-                    PO_headersView, PO_ElasticSingleView, PO_ElasticView)
+                    PO_headersView, PO_ElasticSingleView, PO_ElasticView,
+                    PO_OracleView)
 
 urlpatterns = [
     path('po_oracle/headers/elastic',
@@ -14,5 +15,7 @@ urlpatterns = [
     path('po_elastic', PO_ElasticView.as_view()),
     path('po_oracle/lines', PO_linesView.as_view(), name="po_lines"),
     path('po_oracle/lines/<int:id>/',
-         PO_linesSingleView.as_view(), name="po_lines_single_view")
+         PO_linesSingleView.as_view(), name="po_lines_single_view"),
+    path('po_oracle',
+         PO_OracleView.as_view(), name="po_oracle"),
 ]

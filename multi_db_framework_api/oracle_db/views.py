@@ -78,3 +78,11 @@ class PO_ElasticView(es_views.ListElasticAPIView):
 class PO_ElasticSingleView(es_views.ListElasticAPIView):
     def get(self, request, id):
         return self.list(request, id)
+
+
+class PO_OracleView(ListAPIView):
+    queryset = XXTMP_PO_LINES.objects.all()
+    serializer_class = PO_linesSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
