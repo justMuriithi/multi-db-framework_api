@@ -18,6 +18,9 @@ class PO_headersSerializer(serializers.ModelSerializer):
 
 
 class PO_linesSerializer(serializers.ModelSerializer):
+    po_header = PO_headersSerializer(
+        many=False, read_only=True, required=False)
+
     class Meta:
         model = XXTMP_PO_LINES
         fields = ('__all__')

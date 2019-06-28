@@ -2,7 +2,7 @@ from django.db import models
 
 
 class XXTMP_PO_HEADERS (models.Model):
-    PO_HEADER_ID = models.IntegerField(default=0)
+    PO_HEADER_ID = models.IntegerField(primary_key=True, default=0)
     operating_unit = models.CharField(max_length=120)
     lookup_type = models.CharField(max_length=25)
     operating_unit_country = models.CharField(max_length=60)
@@ -19,12 +19,16 @@ class XXTMP_PO_HEADERS (models.Model):
     bill_to_location_code = models.CharField(max_length=60)
     ship_to_location_code = models.CharField(max_length=60)
 
+    class Meta:
+        managed = False
+        db_table = "XXTMP_PO_HEADERS"
+
 
 class XXTMP_PO_LINES (models.Model):
     PO_HEADER_ID = models.ForeignKey(
         XXTMP_PO_HEADERS, on_delete=models.CASCADE)
     PO_NUMBER = models.CharField(max_length=20)
-    PO_LINE_ID = models.IntegerField(default=0)
+    PO_LINE_ID = models.IntegerField(primary_key=True, default=0)
     POL_CREATION_DATE = models.DateTimeField(auto_now_add=True)
     POL_LAST_UPDATE_DATE = models.DateTimeField(auto_now=True)
     LINE_NUM = models.IntegerField(default=0)
@@ -41,3 +45,7 @@ class XXTMP_PO_LINES (models.Model):
     POL_LINE_AMOUNT = models.FloatField(null=True, blank=True, default=None)
     POL_LINE_AMOUNT_USD = models.FloatField(
         null=True, blank=True, default=None)
+
+    class Meta:
+        managed = False
+        db_table = "XXTMP_PO_LINES"
