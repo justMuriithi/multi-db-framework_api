@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'elasticsearch_dsl',
     'multi_db_framework_api.oracle_db',
     'django_elasticsearch_dsl',
-    'django_elasticsearch_dsl_drf'
+    'django_elasticsearch_dsl_drf',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
