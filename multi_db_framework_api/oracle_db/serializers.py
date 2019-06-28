@@ -11,16 +11,17 @@ class ElasticPO_headersSerializer(ElasticModelSerializer):
         fields = ('__all__')
 
 
-class PO_headersSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = XXTMP_PO_HEADERS
-        fields = ('__all__')
-
-
 class PO_linesSerializer(serializers.ModelSerializer):
-    po_header = PO_headersSerializer(
-        many=False, read_only=True, required=False)
 
     class Meta:
         model = XXTMP_PO_LINES
+        fields = ('__all__')
+
+
+class PO_headersSerializer(serializers.ModelSerializer):
+    po_lines = PO_linesSerializer(
+        many=False, read_only=True, required=False)
+
+    class Meta:
+        model = XXTMP_PO_HEADERS
         fields = ('__all__')
