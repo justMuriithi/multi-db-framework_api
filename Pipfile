@@ -15,6 +15,8 @@ elasticsearch-dsl = "==6.1.0"
 django-elasticsearch-dsl = "*"
 django-elasticsearch-dsl-drf = "*"
 drf-yasg = {extras = ["validation"],version = "*"}
+cx-oracle = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.7"
