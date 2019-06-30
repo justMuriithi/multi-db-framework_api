@@ -85,8 +85,8 @@ class PO_OracleView(ListAPIView):
     queryset = XXTMP_PO_HEADERS.objects.all()
     serializer_class = PO_headersSerializer
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('po_header_id', 'po_number',
-                        'po_line_id', 'item_number', 'approved_date__gte')
+    filterset_fields = ('PO_HEADER_ID', 'po_number',
+                        'approved_date',)
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
