@@ -19,9 +19,12 @@ class PO_linesSerializer(serializers.ModelSerializer):
 
 
 class PO_headersSerializer(serializers.ModelSerializer):
-    po_line = PO_linesSerializer(
-        many=False, read_only=True, required=False)
+    po_lines = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = XXTMP_PO_HEADERS
         fields = ('__all__')
+
+    def get_po_lines(self, obj):
+        qs = XXTMP_PO_LINES.objects.filter(PO_HEADER_ID=obj.id)
+        return list(qs)

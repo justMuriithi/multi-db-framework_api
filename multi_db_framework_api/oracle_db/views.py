@@ -4,6 +4,7 @@ from .search_indexes import PO_headersIndex, oracle_log_dataIndex
 from rest_framework.generics import ListAPIView
 from .models import XXTMP_PO_LINES, XXTMP_PO_HEADERS
 from .serializers import (PO_headersSerializer, PO_linesSerializer)
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class PO_headersElasticView(es_views.ListElasticAPIView):
@@ -83,6 +84,9 @@ class PO_ElasticSingleView(es_views.ListElasticAPIView):
 class PO_OracleView(ListAPIView):
     queryset = XXTMP_PO_HEADERS.objects.all()
     serializer_class = PO_headersSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filterset_fields = ('po_header_id', 'po_number',
+                        'po_line_id', 'item_number', 'approved_date__gte')
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
