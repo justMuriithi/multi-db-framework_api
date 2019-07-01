@@ -26,5 +26,5 @@ class PO_headersSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
     def get_po_lines(self, obj):
-        qs = XXTMP_PO_LINES.objects.filter(PO_HEADER_ID=obj.id)
-        return list(qs)
+        qs = XXTMP_PO_LINES.objects.filter(PO_HEADER_ID=obj.id).values()
+        return qs
