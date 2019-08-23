@@ -5,6 +5,7 @@ from rest_framework.generics import ListAPIView
 from .models import XXTMP_PO_LINES, XXTMP_PO_HEADERS
 from .serializers import (PO_headersSerializer, PO_linesSerializer)
 from django_filters.rest_framework import DjangoFilterBackend
+from .filters import XXTMP_PO_HEADERSFilter
 
 
 class PO_headersElasticView(es_views.ListElasticAPIView):
@@ -82,11 +83,21 @@ class PO_ElasticSingleView(es_views.ListElasticAPIView):
 
 
 class PO_OracleView(ListAPIView):
-    queryset = XXTMP_PO_HEADERS.objects.all()
     serializer_class = PO_headersSerializer
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('PO_HEADER_ID', 'po_number',
-                        'approved_date',)
+    filterset_class = XXTMP_PO_HEADERSFilter
 
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
+    def get_queryset(self):
+        qs = XXTMP_PO_HEADERS.objects.all()
+        item_number = self.request.query_params.get('ITEM_NUMBER', None)
+        approved_date = self.request.query_params.get('approved_date', None)
+        if item_number is not None:
+            b = XXTMP_PO_LINES.objects.get(ITEM_NUMBER='ITEM_NUMBER')
+            c = b.XXTMP_PO_HEADERS.filter(PO_HEADER_ID='PO_HEADER_ID')
+            return c
+        elif approved_date is not None:
+            d = XXTMP_PO_HEADERS.objects.filter(
+                approved_date__gte='approved_date')
+            return d
+        else:
+            return qs
